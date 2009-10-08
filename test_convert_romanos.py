@@ -9,5 +9,9 @@ class CreateRomanoTest(unittest.TestCase):
     def test_Method_Convert_I_in_Integer(self):
         self.assertEqual(self.numero_romano.convert_Romano("I"),1)
 
+    def test_Method_Convert_I_in_Integer(self):
+        self.assertEqual(self.numero_romano.convert_Romano("MD"),1500)
+
+
 unittest.main()
 
