@@ -19,22 +19,22 @@ from random import randrange
 class SistemaDuasIncognitas(object):
 
 	def __init__(self,coeficiente_a,coeficiente_b,coeficiente_c, k=random.randrange(2,6)):
-		self.equacao_Da_Reta_Do_Usuario = [coeficiente_a,coeficiente_b,coeficiente_c]
+		self.L1 = [coeficiente_a,coeficiente_b,coeficiente_c]
 		self.k=k
 
 	def acharDuasRetasCoincidentes(self):
-		equacao_Gerada_Pelo_Sistema=map(lambda x:x*self.k,self.equacao_Da_Reta_Do_Usuario)
-		return equacao_Gerada_Pelo_Sistema
+		L2=map(lambda x:x*self.k,self.L1)
+		return L2
 		
 	def acharDuasRetasParalelas(self):
-		equacao_Gerada_Pelo_Sistema=map(lambda x:x*self.k,self.equacao_Da_Reta_Do_Usuario)
-		equacao_Gerada_Pelo_Sistema[len(self.equacao_Da_Reta_Do_Usuario)-1]-=1
-		return equacao_Gerada_Pelo_Sistema
+		L2=map(lambda x:x*self.k,self.L1)
+		L2[len(self.L1)-1]-=1
+		return L2
 		
 	def acharDuasRetasConcorrentes(self): 
-		equacao_Gerada_Pelo_Sistema=map(lambda x:x*self.k,self.equacao_Da_Reta_Do_Usuario)
-		equacao_Gerada_Pelo_Sistema[0]+=1
-		return equacao_Gerada_Pelo_Sistema
+		L2=map(lambda x:x*self.k,self.L1)
+		L2[0]+=1
+		return L2
 
 
 	
