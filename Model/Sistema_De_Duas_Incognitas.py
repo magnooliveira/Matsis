@@ -1,5 +1,13 @@
-#Autor  : Magno Lima Oliveira
-#E-mail : magnolimaoliveira@gmail.com 
+# -*- coding:UTF-8 -*-			
+			#########################################################
+			# Autor  : Magno Lima Oliveira							#
+			# E-mail : magnolimaoliveira@gmail.com					#
+			# Projeto: MatSis										#
+			# Objetivo : a partir de uma equacao da reta dada é		# 
+			#			 possivel calcular uma outra equação, 		#
+            #            aleatoriamente, de acordo com o tipo de 	#
+            #            sistema definido   						#
+			#########################################################
 
 '''
 >>> equacao = SistemaDuasIncognitas(4,-3,-3,2) 
