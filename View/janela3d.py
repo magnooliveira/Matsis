@@ -80,9 +80,9 @@ class Janela2(object):
 
 	def passaParaReal(self):
 		a1=float(self.xml.get_widget("edta1").get_text())
-		b1=float(self.xml.get_widget('edta1').get_text())
-		c1=float(self.xml.get_widget('edtb1').get_text())
-		d1=float(self.xml.get_widget('edtc1').get_text())
+		b1=float(self.xml.get_widget('edtb1').get_text())
+		c1=float(self.xml.get_widget('edtc1').get_text())
+		d1=float(self.xml.get_widget('edtd1').get_text())
 		equacao = SistemaTresIncognitas(a1,b1,c1,d1)
 		return equacao
 
@@ -126,7 +126,7 @@ class Janela2(object):
 			self.ativaGrafico=True
 
 		elif combo == "Dois Planos Coincidentes um Paralelo":
-			self.resposta = self.passaParaReal().acharTresPlanosCoincidentes()
+			self.resposta = self.passaParaReal().acharDoisPlanosCoincidentesUmParalelo()
 			self.mostrarResultado(self.resposta)
 			self.ativaGrafico=True
 

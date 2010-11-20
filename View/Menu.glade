@@ -51,6 +51,26 @@
                         <signal name="activate" handler="on_sistema3d_activate" after="yes"/>
                       </widget>
                     </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="esc3">
+                        <property name="visible">True</property>
+                        <property name="no_show_all">True</property>
+                        <property name="label" translatable="yes">Escalonamento 3x3</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_sistema3d_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_esc3_activate" after="yes"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="esc4">
+                        <property name="visible">True</property>
+                        <property name="no_show_all">True</property>
+                        <property name="label" translatable="yes">Escalonamento 4x4</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_sistema3d_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_esc3_activate" after="yes"/>
+                      </widget>
+                    </child>
                   </widget>
                 </child>
               </widget>
