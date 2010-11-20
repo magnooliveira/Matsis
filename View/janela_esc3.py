@@ -34,6 +34,11 @@ class Janela_Esc3(object):
 		Metodo Construtor da classe
 
 		"""
+		self.cont = 0
+		self.inicial_primeira_linha = None
+		self.inicial_segunda_linha = None
+		self.inicial_terceira_linha = None
+
 		self.validar = Controle()
 		self.arquivoglade = "Janela_Esc3.glade"
 		self.xml = gtk.glade.XML(self.arquivoglade)
@@ -53,7 +58,6 @@ class Janela_Esc3(object):
 		c1=float(self.xml.get_widget('edtc1').get_text())
 		d1=float(self.xml.get_widget('edtd1').get_text())
 		primeira_linha = (a1, b1, c1, d1)
-#		print primeira_linha
 		return primeira_linha
 
 	def passa_para_real_segunda_linha(self):
@@ -109,7 +113,8 @@ class Janela_Esc3(object):
 		self.xml.get_widget('edtc3').set_text(c3)
 		self.xml.get_widget('edtd3').set_text(d3)
 
-	def on_btnEscalonarSistema_clicked(self, *args):
+	def validar_edits(self):
+
 		texto = "Digite o coeficiente do %s!"
 		self.ativaGrafico=False
 
@@ -162,6 +167,11 @@ class Janela_Esc3(object):
 			self.xml.get_widget('edtd3').grab_focus()
 
 		else:
+			return True
+
+	def on_btnEscalonarSistema_clicked(self, *args):
+
+		if self.validar_edits():
 			sistema = Escalonamento(self.passa_para_real_primeira_linha(), \
 														self.passa_para_real_segunda_linha(),\
 														self.passa_para_real_terceira_linha())
@@ -185,7 +195,80 @@ class Janela_Esc3(object):
 		self.xml.get_widget('edtb3').set_text('')
 		self.xml.get_widget('edtc3').set_text('')
 		self.xml.get_widget('edtd3').set_text('')
+		self.cont = 0
 		self.ativaGrafico=False
+
+	def on_btnavancar_clicked(self, *args):
+		self.cont =  self.cont + 1
+
+		if self.validar_edits():
+
+			sistema  = Escalonamento (self.passa_para_real_primeira_linha(),\
+														  self.passa_para_real_segunda_linha(),\
+														  self.passa_para_real_terceira_linha())
+			if self.cont == 1:
+				self.inicial_primeira_linha = self.passa_para_real_primeira_linha()
+				self.inicial_segunda_linha = self.passa_para_real_segunda_linha()
+				self.inicial_terceira_linha = self.passa_para_real_terceira_linha()
+
+			if self.cont == 1:
+				sistema.fazer_o_primeiro_elemento_da_primeira_linha_ficar_um()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 2:
+				sistema.fazer_o_primeiro_elemento_da_segunda_linha_ficar_zero()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 3:
+				sistema.fazer_o_primeiro_elemento_da_terceira_linha_ficar_zero()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 4:
+				sistema.trocar_da_segunda_com_a_terceira_linha_para_obter_dois_zeros_na_ultima_linha()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 5:
+				sistema.fazer_o_segundo_elemento_da_terceira_linha_ficar_zero_quando_o_segundo_elemento_da_segunda_for_igual()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 6:
+				sistema.fazer_o_segundo_elemento_da_segunda_linha_ficar_um()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 7:
+				sistema.fazer_o_segundo_elemento_da_terceira_linha_ficar_zero()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 8:
+				sistema.fazer_o_terceiro_elemento_da_terceira_linha_ficar_um()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 9:
+				sistema.fazer_o_terceiro_elemento_da_segunda_linha_ficar_zero()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 10:
+				sistema.somar_o_quarto_elemento_da_terceira_linha_com_o_oposto_do_quarto_elemento_da_segunda_linha()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 11:
+				sistema.fazer_o_segundo_elemento_da_primeira_linha_ficar_zero()
+				self.mostrarResultado(sistema)
+
+			elif self.cont == 12:
+				sistema.fazer_o_terceiro_elemento_da_primeira_linha_ficar_zero()
+				self.mostrarResultado(sistema)
+
+			elif self.cont > 12:
+				self.ativaGrafico=True
+
+	def on_btniniciar_clicked(self,*args):
+
+		if self.validar_edits():
+			self.cont = 0
+			self.ativaGrafico=False
+			sistema  = Escalonamento (self.inicial_primeira_linha, self.inicial_segunda_linha, self.inicial_terceira_linha)
+			self.mostrarResultado(sistema)
 
 	def on_window1_destroy(self,*args):
 		gtk.main_quit()
