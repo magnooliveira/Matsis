@@ -1,10 +1,10 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <glade-interface>
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy project-wide -->
   <widget class="GtkWindow" id="window1">
     <property name="visible">True</property>
-    <property name="title" translatable="yes">MatSis - Sistema de duas inc&#xF3;gntas</property>
+    <property name="title" translatable="yes">MatSis - Sistema de duas incógntas</property>
     <property name="resizable">False</property>
     <property name="window_position">center-always</property>
     <property name="destroy_with_parent">True</property>
@@ -19,7 +19,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">&#x25CF;</property>
+            <property name="invisible_char">●</property>
           </widget>
           <packing>
             <property name="x">57</property>
@@ -32,7 +32,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">&#x25CF;</property>
+            <property name="invisible_char">●</property>
           </widget>
           <packing>
             <property name="x">130</property>
@@ -45,7 +45,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">&#x25CF;</property>
+            <property name="invisible_char">●</property>
           </widget>
           <packing>
             <property name="x">205</property>
@@ -58,7 +58,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">&#x25CF;</property>
+            <property name="invisible_char">●</property>
           </widget>
           <packing>
             <property name="x">57</property>
@@ -71,7 +71,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">&#x25CF;</property>
+            <property name="invisible_char">●</property>
           </widget>
           <packing>
             <property name="x">130</property>
@@ -84,7 +84,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">&#x25CF;</property>
+            <property name="invisible_char">●</property>
           </widget>
           <packing>
             <property name="x">205</property>
@@ -123,7 +123,7 @@
         </child>
         <child>
           <widget class="GtkButton" id="btnGerarGrafico">
-            <property name="label" translatable="yes">Gerar Gr&#xE1;fico</property>
+            <property name="label" translatable="yes">Gerar Gráfico</property>
             <property name="width_request">108</property>
             <property name="height_request">28</property>
             <property name="visible">True</property>

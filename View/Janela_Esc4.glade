@@ -3,7 +3,7 @@
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy project-wide -->
   <widget class="GtkWindow" id="window1">
-    <property name="title" translatable="yes">MatSis - Sistema de três incógnitas</property>
+    <property name="title" translatable="yes">MatSis - Escalonamento 4x4</property>
     <property name="resizable">False</property>
     <property name="window_position">center-always</property>
     <property name="destroy_with_parent">True</property>
@@ -21,7 +21,7 @@
           </widget>
           <packing>
             <property name="x">50</property>
-            <property name="y">60</property>
+            <property name="y">64</property>
           </packing>
         </child>
         <child>
@@ -33,8 +33,8 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">140</property>
-            <property name="y">60</property>
+            <property name="x">123</property>
+            <property name="y">64</property>
           </packing>
         </child>
         <child>
@@ -46,8 +46,8 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">230</property>
-            <property name="y">60</property>
+            <property name="x">196</property>
+            <property name="y">64</property>
           </packing>
         </child>
         <child>
@@ -59,8 +59,8 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">320</property>
-            <property name="y">60</property>
+            <property name="x">268</property>
+            <property name="y">64</property>
           </packing>
         </child>
         <child>
@@ -85,7 +85,7 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">140</property>
+            <property name="x">123</property>
             <property name="y">100</property>
           </packing>
         </child>
@@ -98,7 +98,7 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">230</property>
+            <property name="x">196</property>
             <property name="y">100</property>
           </packing>
         </child>
@@ -111,7 +111,7 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">320</property>
+            <property name="x">268</property>
             <property name="y">100</property>
           </packing>
         </child>
@@ -137,7 +137,7 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">140</property>
+            <property name="x">123</property>
             <property name="y">140</property>
           </packing>
         </child>
@@ -150,7 +150,7 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">230</property>
+            <property name="x">196</property>
             <property name="y">140</property>
           </packing>
         </child>
@@ -163,65 +163,40 @@
             <property name="invisible_char">●</property>
           </widget>
           <packing>
-            <property name="x">320</property>
+            <property name="x">268</property>
             <property name="y">140</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkComboBox" id="combobox1">
-            <property name="width_request">250</property>
-            <property name="height_request">30</property>
-            <property name="visible">True</property>
-          </widget>
-          <packing>
-            <property name="x">280</property>
-            <property name="y">10</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkButton" id="btnGerarSistema">
-            <property name="label" translatable="yes">Gerar Sistema</property>
+          <widget class="GtkButton" id="btnEscalonarSistema">
+            <property name="label" translatable="yes">Escalonar</property>
             <property name="width_request">112</property>
             <property name="height_request">32</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <signal name="clicked" handler="on_btnGerarSistema_clicked" after="yes"/>
+            <signal name="clicked" handler="on_btnEscalonarSistema_clicked" after="yes"/>
+            <signal name="activate" handler="on_btnEscalonarSistema_activate" after="yes"/>
           </widget>
           <packing>
-            <property name="x">49</property>
-            <property name="y">203</property>
+            <property name="x">11</property>
+            <property name="y">220</property>
           </packing>
         </child>
         <child>
           <widget class="GtkButton" id="btnLimpar">
             <property name="label" translatable="yes">Limpar</property>
-            <property name="width_request">98</property>
-            <property name="height_request">33</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <signal name="clicked" handler="on_btnLimpar_clicked" after="yes"/>
-            <signal name="activate" handler="on_btnLimpar_activate"/>
-          </widget>
-          <packing>
-            <property name="x">184</property>
-            <property name="y">203</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkButton" id="btnGerarGrafico">
-            <property name="label" translatable="yes">Gerar Gráfico</property>
-            <property name="width_request">100</property>
+            <property name="width_request">112</property>
             <property name="height_request">32</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <signal name="clicked" handler="on_btnGerarGrafico_clicked" after="yes"/>
+            <signal name="clicked" handler="on_btnLimpar_clicked" after="yes"/>
+            <signal name="activate" handler="on_btnLimpar_activate" after="yes"/>
           </widget>
           <packing>
-            <property name="x">309</property>
-            <property name="y">203</property>
+            <property name="x">125</property>
+            <property name="y">220</property>
           </packing>
         </child>
         <child>
@@ -244,8 +219,8 @@
             <property name="label" translatable="yes">Y</property>
           </widget>
           <packing>
-            <property name="x">145</property>
-            <property name="y">40</property>
+            <property name="x">131</property>
+            <property name="y">41</property>
           </packing>
         </child>
         <child>
@@ -256,116 +231,156 @@
             <property name="label" translatable="yes">Z</property>
           </widget>
           <packing>
-            <property name="x">239</property>
-            <property name="y">37</property>
+            <property name="x">206</property>
+            <property name="y">38</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="btnavancar">
+            <property name="label" translatable="yes">Avançar</property>
+            <property name="width_request">112</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnavancar_clicked" after="yes"/>
+            <signal name="activate" handler="on_btnavancar_activate" after="yes"/>
+          </widget>
+          <packing>
+            <property name="x">240</property>
+            <property name="y">220</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="btniniciar">
+            <property name="label" translatable="yes">Iniciar</property>
+            <property name="width_request">112</property>
+            <property name="height_request">32</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btniniciar_clicked" after="yes"/>
+            <signal name="activate" handler="on_btniniciar_activate" after="yes"/>
+          </widget>
+          <packing>
+            <property name="x">354</property>
+            <property name="y">220</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="edte1">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
+          </widget>
+          <packing>
+            <property name="x">341</property>
+            <property name="y">64</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="edte2">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
+          </widget>
+          <packing>
+            <property name="x">341</property>
+            <property name="y">100</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="edte3">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
+          </widget>
+          <packing>
+            <property name="x">341</property>
+            <property name="y">140</property>
           </packing>
         </child>
         <child>
           <widget class="GtkLabel" id="label4">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
+            <property name="width_request">49</property>
+            <property name="height_request">38</property>
             <property name="visible">True</property>
-            <property name="label" translatable="yes">+</property>
+            <property name="label" translatable="yes">W</property>
           </widget>
           <packing>
-            <property name="x">110</property>
-            <property name="y">61</property>
+            <property name="x">275</property>
+            <property name="y">35</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label5">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
+          <widget class="GtkEntry" id="edta4">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
             <property name="visible">True</property>
-            <property name="label" translatable="yes">+</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
           </widget>
           <packing>
-            <property name="x">200</property>
-            <property name="y">61</property>
+            <property name="x">50</property>
+            <property name="y">176</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label6">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
+          <widget class="GtkEntry" id="edtb4">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
             <property name="visible">True</property>
-            <property name="label" translatable="yes">=</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
           </widget>
           <packing>
-            <property name="x">290</property>
-            <property name="y">61</property>
+            <property name="x">123</property>
+            <property name="y">176</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label7">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
+          <widget class="GtkEntry" id="edtc4">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
             <property name="visible">True</property>
-            <property name="label" translatable="yes">+</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
           </widget>
           <packing>
-            <property name="x">109</property>
-            <property name="y">100</property>
+            <property name="x">196</property>
+            <property name="y">176</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label8">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
+          <widget class="GtkEntry" id="edtd4">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
             <property name="visible">True</property>
-            <property name="label" translatable="yes">+</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
           </widget>
           <packing>
-            <property name="x">199</property>
-            <property name="y">100</property>
+            <property name="x">268</property>
+            <property name="y">176</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label9">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
+          <widget class="GtkEntry" id="edte4">
+            <property name="width_request">60</property>
+            <property name="height_request">25</property>
             <property name="visible">True</property>
-            <property name="label" translatable="yes">=</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">•</property>
           </widget>
           <packing>
-            <property name="x">288</property>
-            <property name="y">100</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label10">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
-            <property name="visible">True</property>
-            <property name="label" translatable="yes">+</property>
-          </widget>
-          <packing>
-            <property name="x">108</property>
-            <property name="y">140</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label11">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
-            <property name="visible">True</property>
-            <property name="label" translatable="yes">+</property>
-          </widget>
-          <packing>
-            <property name="x">198</property>
-            <property name="y">140</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label12">
-            <property name="width_request">31</property>
-            <property name="height_request">24</property>
-            <property name="visible">True</property>
-            <property name="label" translatable="yes">=</property>
-          </widget>
-          <packing>
-            <property name="x">288</property>
-            <property name="y">140</property>
+            <property name="x">341</property>
+            <property name="y">176</property>
           </packing>
         </child>
       </widget>

@@ -6,6 +6,7 @@
     <property name="width_request">600</property>
     <property name="height_request">450</property>
     <property name="visible">True</property>
+    <property name="is_focus">True</property>
     <property name="title" translatable="yes">MatSis</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
@@ -67,8 +68,8 @@
                         <property name="no_show_all">True</property>
                         <property name="label" translatable="yes">Escalonamento 4x4</property>
                         <property name="use_underline">True</property>
-                        <signal name="activate_item" handler="on_sistema3d_activate_item" after="yes"/>
-                        <signal name="activate" handler="on_esc3_activate" after="yes"/>
+                        <signal name="activate_item" handler="on_sistema4d_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_esc4_activate" after="yes"/>
                       </widget>
                     </child>
                   </widget>

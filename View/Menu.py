@@ -7,7 +7,8 @@ from Sobre import *
 from janela2d import *
 from janela3d import *
 from janela_esc3 import *
-#from janela_esc4 import *
+from janela_esc4 import *
+
 from sys import *
 
 try:
@@ -54,8 +55,8 @@ class JanelaPrincipal(object):
 	def on_esc3_activate(self,*args):
  		janela_esc3 = Janela_Esc3()
 
-#    def on_esc4_activate(self,*args):
-#        janela_esc4 = Janela_Esc4()
+	def on_esc4_activate(self,*args):
+		janela_esc4 = Janela_Esc4()
 
 	def on_sistema2d_activate(self,*args):
 		janela2d = Janela1()
