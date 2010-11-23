@@ -3,7 +3,7 @@ class Escalonamento(object):
 		Esta classe escalona um sistema de 3 linhas e 3 equacoes, ela tera
 		uma classe controladora que irar indicar qual linha deve comecar
 	"""
-	def __init__(self,primeira_linha, segunda_linha, terceira_linha):
+	def __init__(self,primeira_linha="", segunda_linha="", terceira_linha=""):
 		self.primeira_linha = list(primeira_linha)
 		self.segunda_linha = list(segunda_linha)
 		self.terceira_linha = list(terceira_linha)
@@ -26,10 +26,9 @@ class Escalonamento(object):
 			return self.trocar_segundo_pelo_terceiro()
 
 	def fazer_o_primeiro_elemento_da_primeira_linha_ficar_um(self):
-		if self.primeira_linha[0] == 0:
-			return self.primeira_linha
-		numero_modificador = 1./self.primeira_linha[0]
-		self.primeira_linha = self.multiplica_linha_pelo_modificador(self.primeira_linha, numero_modificador)
+		if self.primeira_linha[0] != 0:
+			numero_modificador = 1./self.primeira_linha[0]
+			self.primeira_linha = self.multiplica_linha_pelo_modificador(self.primeira_linha, numero_modificador)
 		return self.primeira_linha
 
 	def fazer_o_primeiro_elemento_da_segunda_linha_ficar_zero(self):
@@ -54,10 +53,9 @@ class Escalonamento(object):
 		return self.terceira_linha
 
 	def fazer_o_segundo_elemento_da_segunda_linha_ficar_um(self):
-		if self.segunda_linha[1] == 0:
-			return self.segunda_linha
-		numero_modificador = 1./self.segunda_linha[1]
-		self.segunda_linha = self.multiplica_linha_pelo_modificador(self.segunda_linha, numero_modificador)
+		if self.segunda_linha[1] != 0:
+			numero_modificador = 1./self.segunda_linha[1]
+			self.segunda_linha = self.multiplica_linha_pelo_modificador(self.segunda_linha, numero_modificador)
 		return self.segunda_linha
 
 	def fazer_o_segundo_elemento_da_terceira_linha_ficar_zero(self):
@@ -66,10 +64,9 @@ class Escalonamento(object):
 		return self.terceira_linha
 
 	def fazer_o_terceiro_elemento_da_terceira_linha_ficar_um(self):
-		if self.terceira_linha[2] == 0:
-			return self.terceira_linha
-		numero_modificador = 1./self.terceira_linha[2]
-		self.terceira_linha = self.multiplica_linha_pelo_modificador(self.terceira_linha, numero_modificador)
+		if self.terceira_linha[2] != 0:
+			numero_modificador = 1./self.terceira_linha[2]
+			self.terceira_linha = self.multiplica_linha_pelo_modificador(self.terceira_linha, numero_modificador)
 		return self.terceira_linha
 
 	def fazer_o_terceiro_elemento_da_segunda_linha_ficar_zero(self):
@@ -78,7 +75,7 @@ class Escalonamento(object):
 		return self.segunda_linha
 
 	def somar_o_quarto_elemento_da_terceira_linha_com_o_oposto_do_quarto_elemento_da_segunda_linha(self):
-		# [0 0 0 x]  and [0 0 0 y]   seja   e diferente de zero
+		# [0 0 0 x]  and [0 0 0 y]   seja  diferente de zero
 		if (self.terceira_linha[2] == 0) and (self.segunda_linha[2] == 0) and (self.segunda_linha[3] == self.terceira_linha[3]):
 			self.terceira_linha[3] = self.terceira_linha[3] - self.segunda_linha[3]
 		return self.terceira_linha
