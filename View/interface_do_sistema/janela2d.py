@@ -4,7 +4,8 @@
 
 from sys import path
 
-caminho_do_model =  "/home/patricia/Matsis/Model"
+
+caminho_do_model =  "/home/patricia/Matsis/Model/sistema_model"
 caminho_do_controller =  "/home/patricia/Matsis/Controller"
 
 path.append(caminho_do_model)
@@ -38,7 +39,7 @@ class Janela1(object):
 		Metodo Construtor da classe
 		"""
 		self.validar = Controle()
-		self.arquivoglade = "janela.glade"
+		self.arquivoglade = "/home/patricia/Matsis/View/interface_do_sistema/janela.glade"
 		self.xml = gtk.glade.XML(self.arquivoglade)
 
 

@@ -9,7 +9,7 @@ class Controle(object):
 
 	def alerta(self,texto):
 		dialogo= gtk.MessageDialog (None, gtk.DIALOG_MODAL, gtk.MESSAGE_INFO, gtk.BUTTONS_OK, texto)
-		dialog.set_title("MatSis")
+		dialogo.set_title("MatSis")
 		dialogo.set_markup (texto)
 		dialogo.run ()
 		return dialogo.destroy ()

@@ -3,13 +3,20 @@
 
 #Autor: Magno Lima Oliveira
 
+from sys import *
+
+caminho_da_view_sitema =  "/home/patricia/Matsis/View/interface_do_sistema"
+caminho_do_controller =  "/home/patricia/Matsis/Controller"
+
+path.append(caminho_da_view_sitema)
+path.append(caminho_do_controller)
+
 from Sobre import *
 from janela2d import *
 from janela3d import *
 from janela_esc3 import *
 from janela_esc4 import *
 
-from sys import *
 
 try:
 	import pygtk

@@ -4,7 +4,7 @@
 
 from sys import path
 
-caminho_do_model =  "/home/patricia/Matsis/Model"
+caminho_do_model =  "/home/patricia/Matsis/Model/sistema_model"
 caminho_do_controller =  "/home/patricia/Matsis/Controller"
 
 path.append(caminho_do_model)
@@ -37,7 +37,7 @@ class Janela2(object):
 
 		"""
 		self.validar = Controle()
-		self.arquivoglade = "Janela3D.glade"
+		self.arquivoglade = "/home/patricia/Matsis/View/interface_do_sistema/Janela3D.glade"
 		self.xml = gtk.glade.XML(self.arquivoglade)
 		self.mainWindow = self.xml.get_widget('window1')
 		self.btnGerarSistema = self.xml.get_widget('btnGerarSistema')
