@@ -141,9 +141,10 @@ if __name__ == "__main__":
 
 	import doctest, teste_model
 	from sys import path
-	caminho_do_escalonamento_model =  "/home/patricia/Matsis/Model/escalonamento_model"
-	caminho_da_matriz_model =  "/home/patricia/Matsis/Model/matriz_model"
-	caminho_do_sistema_model =  "/home/patricia/Matsis/Model/sistema_model"
+	import os.path
+	caminho_do_escalonamento_model = os.path.expanduser( "~/Matsis/Model/escalonamento_model")
+	caminho_da_matriz_model = os.path.expanduser( "~/Matsis/Model/matriz_model")
+	caminho_do_sistema_model =  os.path.expanduser("~/Matsis/Model/sistema_model")
 	path.append(caminho_do_escalonamento_model)
 	path.append(caminho_da_matriz_model)
 	path.append(caminho_do_sistema_model)

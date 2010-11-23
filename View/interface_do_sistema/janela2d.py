@@ -3,10 +3,10 @@
 #Autor: Magno Lima Oliveira
 
 from sys import path
+import os.path
 
-
-caminho_do_model =  "/home/patricia/Matsis/Model/sistema_model"
-caminho_do_controller =  "/home/patricia/Matsis/Controller"
+caminho_do_model = os.path.expanduser("~/Matsis/Model/sistema_model")
+caminho_do_controller = os.path.expanduser("~/Matsis/Controller")
 
 path.append(caminho_do_model)
 path.append(caminho_do_controller)
@@ -39,7 +39,7 @@ class Janela1(object):
 		Metodo Construtor da classe
 		"""
 		self.validar = Controle()
-		self.arquivoglade = "/home/patricia/Matsis/View/interface_do_sistema/janela.glade"
+		self.arquivoglade =os.path.expanduser( "~/Matsis/View/interface_do_sistema/janela.glade")
 		self.xml = gtk.glade.XML(self.arquivoglade)
 
 

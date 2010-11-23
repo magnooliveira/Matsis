@@ -4,9 +4,10 @@
 #Autor: Magno Lima Oliveira
 
 from sys import *
+import os.path
 
-caminho_da_view_sitema =  "/home/patricia/Matsis/View/interface_do_sistema"
-caminho_do_controller =  "/home/patricia/Matsis/Controller"
+caminho_da_view_sitema =  os.path.expanduser ("~/Matsis/View/interface_do_sistema")
+caminho_do_controller =  os.path.expanduser("~/Matsis/Controller")
 
 path.append(caminho_da_view_sitema)
 path.append(caminho_do_controller)

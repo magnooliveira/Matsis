@@ -3,9 +3,10 @@
 #Autor: Magno Lima Oliveira
 
 from sys import path
+import os.path
 
-caminho_do_model =  "/home/patricia/Matsis/Model/escalonamento_model"
-caminho_do_controller =  "/home/patricia/Matsis/Controller"
+caminho_do_model =  os.path.expanduser("~/Matsis/Model/escalonamento_model")
+caminho_do_controller =  os.path.expanduser("~/Matsis/Controller")
 
 path.append(caminho_do_model)
 path.append(caminho_do_controller)
@@ -41,12 +42,12 @@ class Janela_Esc4(object):
 
 		self.sistema = EscalonamentoQuatroLinhas()
 		self.validar = Controle()
-		self.arquivoglade = "/home/patricia/Matsis/View/interface_do_sistema/Janela_Esc4.glade"
+		self.arquivoglade = os.path.expanduser("~/Matsis/View/interface_do_sistema/Janela_Esc4.glade")
 		self.xml = gtk.glade.XML(self.arquivoglade)
 		self.mainWindow = self.xml.get_widget('window1')
 		self.btnGerarSistema = self.xml.get_widget('btnEscalonarSistema')
 		self.btnLimpar = self.xml.get_widget('btnLimpar')
-		self.mainWindow.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#B22222"))
+		self.mainWindow.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#20B2AA"))
 		self.xml.signal_autoconnect(self)
 		self.mainWindow.show_all()
 
