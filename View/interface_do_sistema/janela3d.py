@@ -76,6 +76,8 @@ class Janela2(object):
 		# Coloca o foco no -Selecionar-
 		self.cbxSistema.set_active(0)
 
+		self.combo = self.cbxSistema.get_active_text()
+
 		gtk.main()
 
 	def passaParaReal(self):
@@ -96,10 +98,9 @@ class Janela2(object):
 		self.xml.get_widget('edtc3').set_text(str(self.resposta[1][2]))
 		self.xml.get_widget('edtd3').set_text(str(self.resposta[1][3]))
 
-	def on_btnGerarSistema_clicked(self, *args):
+	def validar_edits(self):
 		texto = "Digite o coeficiente de %s!"
-		self.ativaGrafico=False
-		combo = self.cbxSistema.get_active_text()
+		self.combo = self.cbxSistema.get_active_text()
 
 		if self.xml.get_widget('edta1').get_text()=="":
 			self.validar.alerta(texto%"a")
@@ -117,48 +118,55 @@ class Janela2(object):
 			self.validar.alerta(texto%"d")
 			self.xml.get_widget('edtd1').grab_focus()
 
-		elif combo == "         -Selecione-":
+		elif self.combo == "         -Selecione-":
 			self.validar.alerta("Selecione uma opção de sistema!")
 
-		elif combo == "Tres Planos Coincidentes":
-			self.resposta = self.passaParaReal().acharTresPlanosCoincidentes()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+		else:
+			return True
 
-		elif combo == "Dois Planos Coincidentes um Paralelo":
-			self.resposta = self.passaParaReal().acharDoisPlanosCoincidentesUmParalelo()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+	def on_btnGerarSistema_clicked(self, *args):
+		self.ativaGrafico=False
 
-		elif combo == "Dois Planos Coincidentes um Intersecta":
-			self.resposta = self.passaParaReal().acharDoisPlanosCoincidentesUmIntersecta()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+		if self.validar_edits():
+			if self.combo == "Tres Planos Coincidentes":
+				self.resposta = self.passaParaReal().acharTresPlanosCoincidentes()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
-		elif combo == "Tres Planos Paralelos":
-			self.resposta = self.passaParaReal().acharTresPlanosParalelos()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+			elif self.combo == "Dois Planos Coincidentes um Paralelo":
+				self.resposta = self.passaParaReal().acharDoisPlanosCoincidentesUmParalelo()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
-		elif combo == "Dois Planos Paralelos um Intersecta":
-			self.resposta = self.passaParaReal().acharDoisPlanosParalelosUmIntersecta()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+			elif self.combo == "Dois Planos Coincidentes um Intersecta":
+				self.resposta = self.passaParaReal().acharDoisPlanosCoincidentesUmIntersecta()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
-		elif combo == "Tres Planos Com uma Reta Comum":
-			self.resposta = self.passaParaReal().acharTresPlanosComUmaRetaComum()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+			elif self.combo == "Tres Planos Paralelos":
+				self.resposta = self.passaParaReal().acharTresPlanosParalelos()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
-		elif combo == "Tres Planos Intersectam Dois a Dois":
-			self.resposta = self.passaParaReal().acharTresPlanosIntersectamDoisADois()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+			elif self.combo == "Dois Planos Paralelos um Intersecta":
+				self.resposta = self.passaParaReal().acharDoisPlanosParalelosUmIntersecta()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
-		elif combo == "Tres Planos um Ponto Comum":
-			self.resposta = self.passaParaReal().acharTresPlanosUmPontoComum()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+			elif self.combo == "Tres Planos Com uma Reta Comum":
+				self.resposta = self.passaParaReal().acharTresPlanosComUmaRetaComum()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
+
+			elif self.combo == "Tres Planos Intersectam Dois a Dois":
+				self.resposta = self.passaParaReal().acharTresPlanosIntersectamDoisADois()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
+
+			elif self.combo == "Tres Planos um Ponto Comum":
+				self.resposta = self.passaParaReal().acharTresPlanosUmPontoComum()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
 	def on_btnLimpar_clicked(self, *args):
 
@@ -178,7 +186,7 @@ class Janela2(object):
 		self.ativaGrafico=False
 
 	def on_btnGerarGrafico_clicked(self, *args):
-		if (self.ativaGrafico==True):
+		if (self.ativaGrafico == True):
 			grafico = Grafico(self.a1,self.b1,self.c1,self.resposta[0],self.resposta[1],self.resposta[2])
 			grafico.gerarGrafico3D()
 		else:

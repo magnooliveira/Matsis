@@ -76,6 +76,8 @@ class Janela1(object):
 		# Coloca o foco no -Selecionar-
 		self.cbxSistema.set_active(0)
 
+		self.combo = self.cbxSistema.get_active_text()
+
 		gtk.main()
 
 	def passaParaReal(self):
@@ -90,13 +92,9 @@ class Janela1(object):
 		self.xml.get_widget('edtb2').set_text(str(self.resposta[1]))
 		self.xml.get_widget('edtc2').set_text(str(self.resposta[2]))
 
-
-	def on_btnGerarSistema_clicked(self, *args):
-
-		combo = self.cbxSistema.get_active_text()
+	def validar_edits(self):
+		self.combo = self.cbxSistema.get_active_text()
 		texto = "Digite o coeficiente de %s!"
-		self.ativaGrafico=False
-
 		if self.xml.get_widget('edta1').get_text()=="":
 			self.validar.alerta(texto%"a")
 			self.xml.get_widget('edta1').grab_focus()
@@ -109,24 +107,30 @@ class Janela1(object):
 			self.validar.alerta(texto%"c")
 			self.xml.get_widget('edtc1').grab_focus()
 
-		elif combo == "         -Selecione-":
+		elif self.combo == "         -Selecione-":
 			texto = "Selecione uma opção de sistema!"
 			self.validar.alerta("Selecione uma opção de sistema!")
 
-		elif combo == "Duas Retas Coincidentes":
-			self.resposta = self.passaParaReal().acharDuasRetasCoincidentes()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+		else:
+			return True
 
-		elif combo == "Duas Retas Paralelas":
-			self.resposta = self.passaParaReal().acharDuasRetasParalelas()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+	def on_btnGerarSistema_clicked(self, *args):
+		self.ativaGrafico=False
+		if self.validar_edits():
+			if self.combo == "Duas Retas Coincidentes":
+				self.resposta = self.passaParaReal().acharDuasRetasCoincidentes()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
-		elif combo == "Duas Retas Concorrentes":
-			self.resposta = self.passaParaReal().acharDuasRetasConcorrentes()
-			self.mostrarResultado(self.resposta)
-			self.ativaGrafico=True
+			elif self.combo == "Duas Retas Paralelas":
+				self.resposta = self.passaParaReal().acharDuasRetasParalelas()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
+
+			elif self.combo == "Duas Retas Concorrentes":
+				self.resposta = self.passaParaReal().acharDuasRetasConcorrentes()
+				self.mostrarResultado(self.resposta)
+				self.ativaGrafico=True
 
 	def on_btnLimpar_clicked(self, *args):
 		self.xml.get_widget('edta1').set_text("")
@@ -139,8 +143,7 @@ class Janela1(object):
 		self.ativaGrafico=False
 
 	def on_btnGerarGrafico_clicked(self, *args):
-
-		if (self.ativaGrafico==True):
+		if (self.ativaGrafico == True):
 			grafico = Grafico(self.a1,self.b1,self.c1,self.resposta[0],self.resposta[1],self.resposta[2])
 			grafico.gerarGrafico2D()
 			del grafico
