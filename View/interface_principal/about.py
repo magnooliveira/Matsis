@@ -29,6 +29,7 @@ class Janela_About(object):
 
 		self.fix2 = self.xml.get_widget('fixed2')
 
+
 		self.mainWindow1 = self.xml.get_widget('window')
 		self.mainWindow1.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#B22222"))
 		self.mainWindow1.show_all()

@@ -52,6 +52,7 @@ class Janela_Ordem(object):
 		self.mat_A  = mat_A
 
 		self.mainWindow_ordem = self.xml.get_widget('window_ordem')
+		self.mainWindow_ordem.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#668B8B"))
 		self.mainWindow_ordem.show_all()
 		self.ordem1 = 0
 		self.ordem2 = 0

@@ -41,6 +41,7 @@ class Janela_Numero(object):
 		self.fix = self.xml.get_widget('fixed1')
 
 		self.mainWindow = self.xml.get_widget('window')
+		self.mainWindow.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#5F9EA0"))
 		self.mainWindow.show_all()
 		self.xml.signal_autoconnect(self)
 

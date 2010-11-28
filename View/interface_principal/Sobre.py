@@ -34,6 +34,8 @@ class JanelaSobre(object):
 		self.fix = self.xml.get_widget('fixed2')
 		self.botao = self.xml.get_widget('btn_sair')
 
+
+
 		img = gtk.Image()
 		img.set_from_file("sobre.jpg")
 		self.fix.add(img)

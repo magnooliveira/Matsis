@@ -70,6 +70,7 @@ class Janela_Matriz_B(object):
 				self.lista.append(self.aij)
 
 		self.mainWindow = self.xml.get_widget('window')
+		self.mainWindow.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#4169E1"))
 		self.mainWindow.show_all()
 
 		self.xml.signal_autoconnect(self)
