@@ -76,6 +76,112 @@
                 </child>
               </widget>
             </child>
+            <child>
+              <widget class="GtkMenuItem" id="Matriz1">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Matriz</property>
+                <property name="use_underline">True</property>
+                <child>
+                  <widget class="GtkMenu" id="menu1">
+                    <property name="visible">True</property>
+                    <property name="ubuntu_local">True</property>
+                    <child>
+                      <widget class="GtkMenuItem" id="calcular_traco">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Calcular Traço da Matriz</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_calcular_traco_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_calcular_traco_activate" after="yes"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="calcular_matriz_inversa">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Calcular Matriz Inversa</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_calcular_matriz_inversa_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_calcular_matriz_inversa_activate" after="yes"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="achar_transposta">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Achar Transposta</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_achar_transposta_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_achar_transposta_activate" after="yes"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="somar_duas_matrizes">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Somar Duas Matrizes</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_somar_duas_matrizes_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_somar_duas_matrizes_activate" after="yes"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="subtrair_duas_matrizes">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Subtrair Duas Matrizes</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_subtrair_duas_matrizes_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_subtrair_duas_matrizes_activate" after="yes"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="multiplicar_duas_matrizes">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Multiplicar Duas Matrizes</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_multiplicar_duas_matrizes_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_multiplicar_duas_matrizes_activate" after="yes"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="multiplicar_numero_por_matriz">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Multiplicar Um Número por Uma Matriz</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_multiplicar_numero_por_matriz_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_multiplicar_numero_por_matriz_activate" after="yes"/>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkMenuItem" id="determinante">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Determinante</property>
+                <property name="use_underline">True</property>
+                <child>
+                  <widget class="GtkMenu" id="menu2">
+                    <property name="visible">True</property>
+                    <property name="ubuntu_local">True</property>
+                    <child>
+                      <widget class="GtkMenuItem" id="calcular_determinanter">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Calcular Determinante</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_calcular_determinante_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_calcular_determinante_activate" after="yes"/>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkMenuItem" id="sobre">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Sobre</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_sobre_activate" after="yes"/>
+              </widget>
+            </child>
           </widget>
           <packing>
             <property name="y">2</property>

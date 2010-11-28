@@ -50,6 +50,10 @@ class Janela1(object):
 		self.mainWindow.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#B22222"))
 		self.mainWindow.show_all()
 
+		self.a1 = None
+		self.b1 = None
+		self.c1 = None
+
 		self.btnGerarSistema = self.xml.get_widget('btnGerarSistema')
 		self.btnLimpar = self.xml.get_widget('btnLimpar')
 		self.btnGerarGrafico = self.xml.get_widget('btnLimpar')
@@ -81,9 +85,17 @@ class Janela1(object):
 		gtk.main()
 
 	def passaParaReal(self):
-		self.a1=float(self.xml.get_widget("edta1").get_text())
-		self.b1=float(self.xml.get_widget('edtb1').get_text())
-		self.c1=float(self.xml.get_widget('edtc1').get_text())
+		try:
+			self.a1=float(self.xml.get_widget("edta1").get_text())
+			self.b1=float(self.xml.get_widget('edtb1').get_text())
+			self.c1=float(self.xml.get_widget('edtc1').get_text())
+			return True
+		except ValueError:
+			self.validar.alerta("Digite apenas números !")
+			return self.xml.get_widget('edta1').grab_focus()
+			return False
+
+	def criar_equacao(self):
 		equacao = SistemaDuasIncognitas(self.a1,self.b1,self.c1)
 		return equacao
 
@@ -117,20 +129,22 @@ class Janela1(object):
 	def on_btnGerarSistema_clicked(self, *args):
 		self.ativaGrafico=False
 		if self.validar_edits():
-			if self.combo == "Duas Retas Coincidentes":
-				self.resposta = self.passaParaReal().acharDuasRetasCoincidentes()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+			if (self.passaParaReal()):
 
-			elif self.combo == "Duas Retas Paralelas":
-				self.resposta = self.passaParaReal().acharDuasRetasParalelas()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				if self.combo == "Duas Retas Coincidentes":
+					self.resposta = self.criar_equacao().acharDuasRetasCoincidentes()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Duas Retas Concorrentes":
-				self.resposta = self.passaParaReal().acharDuasRetasConcorrentes()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Duas Retas Paralelas":
+					self.resposta = self.criar_equacao().acharDuasRetasParalelas()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
+
+				elif self.combo == "Duas Retas Concorrentes":
+					self.resposta = self.criar_equacao().acharDuasRetasConcorrentes()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
 	def on_btnLimpar_clicked(self, *args):
 		self.xml.get_widget('edta1').set_text("")

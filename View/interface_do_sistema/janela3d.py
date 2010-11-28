@@ -49,6 +49,11 @@ class Janela2(object):
 		self.xml.signal_autoconnect(self)
 		self.mainWindow.show_all()
 
+		self.a1 = None
+		self.b1 = None
+		self.c1 = None
+		self.d1 = None
+
 		# Comboxbox
 		self.cbxSistema = self.xml.get_widget('combobox1')
 
@@ -82,11 +87,20 @@ class Janela2(object):
 		gtk.main()
 
 	def passaParaReal(self):
-		a1=float(self.xml.get_widget("edta1").get_text())
-		b1=float(self.xml.get_widget('edtb1').get_text())
-		c1=float(self.xml.get_widget('edtc1').get_text())
-		d1=float(self.xml.get_widget('edtd1').get_text())
-		equacao = SistemaTresIncognitas(a1,b1,c1,d1)
+		try:
+			self.a1=float(self.xml.get_widget("edta1").get_text())
+			self.b1=float(self.xml.get_widget('edtb1').get_text())
+			self.c1=float(self.xml.get_widget('edtc1').get_text())
+			self.d1=float(self.xml.get_widget('edtd1').get_text())
+			return True
+		except ValueError:
+			self.validar.alerta("Digite apenas números !")
+			return self.xml.get_widget('edta1').grab_focus()
+			return False
+
+
+	def criar_equacao(self):
+		equacao = SistemaTresIncognitas(self.a1,self.b1,self.c1,self.d1)
 		return equacao
 
 	def mostrarResultado(self,resposta):
@@ -129,45 +143,46 @@ class Janela2(object):
 		self.ativaGrafico=False
 
 		if self.validar_edits():
-			if self.combo == "Tres Planos Coincidentes":
-				self.resposta = self.passaParaReal().acharTresPlanosCoincidentes()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+			if (self.passaParaReal()):
+				if self.combo == "Tres Planos Coincidentes":
+					self.resposta = self.criar_equacao().acharTresPlanosCoincidentes()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Dois Planos Coincidentes um Paralelo":
-				self.resposta = self.passaParaReal().acharDoisPlanosCoincidentesUmParalelo()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Dois Planos Coincidentes um Paralelo":
+					self.resposta = self.criar_equacao().acharDoisPlanosCoincidentesUmParalelo()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Dois Planos Coincidentes um Intersecta":
-				self.resposta = self.passaParaReal().acharDoisPlanosCoincidentesUmIntersecta()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Dois Planos Coincidentes um Intersecta":
+					self.resposta = self.criar_equacao().acharDoisPlanosCoincidentesUmIntersecta()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Tres Planos Paralelos":
-				self.resposta = self.passaParaReal().acharTresPlanosParalelos()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Tres Planos Paralelos":
+					self.resposta = self.criar_equacao().acharTresPlanosParalelos()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Dois Planos Paralelos um Intersecta":
-				self.resposta = self.passaParaReal().acharDoisPlanosParalelosUmIntersecta()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Dois Planos Paralelos um Intersecta":
+					self.resposta = self.criar_equacao().acharDoisPlanosParalelosUmIntersecta()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Tres Planos Com uma Reta Comum":
-				self.resposta = self.passaParaReal().acharTresPlanosComUmaRetaComum()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Tres Planos Com uma Reta Comum":
+					self.resposta = self.criar_equacao().acharTresPlanosComUmaRetaComum()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Tres Planos Intersectam Dois a Dois":
-				self.resposta = self.passaParaReal().acharTresPlanosIntersectamDoisADois()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Tres Planos Intersectam Dois a Dois":
+					self.resposta = self.criar_equacao().acharTresPlanosIntersectamDoisADois()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
-			elif self.combo == "Tres Planos um Ponto Comum":
-				self.resposta = self.passaParaReal().acharTresPlanosUmPontoComum()
-				self.mostrarResultado(self.resposta)
-				self.ativaGrafico=True
+				elif self.combo == "Tres Planos um Ponto Comum":
+					self.resposta = self.criar_equacao().acharTresPlanosUmPontoComum()
+					self.mostrarResultado(self.resposta)
+					self.ativaGrafico=True
 
 	def on_btnLimpar_clicked(self, *args):
 

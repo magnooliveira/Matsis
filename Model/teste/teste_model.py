@@ -81,7 +81,7 @@ x = 1.000, y = 2.000, z = 2.000, w = 3.000
 >>> escalona_quatro2
 x = 1.000, y = 2.000, z = 3.000, w = 4.000
 
->>> A = Matriz((2,2),(2,3))
+>>> A = Matriz([(2,2),(2,3)])
 >>> A.calcular_Traco()
 matrix([[5]])
 >>> A.calcular_Inversa()
@@ -95,7 +95,7 @@ matrix([[2, 2],
 
 >>> A.calcular_determinante()
 2.0
->>> B = Matriz((1,1),(1,1))
+>>> B = Matriz([(1,1),(1,1)])
 >>> A.matriz + B.matriz
 matrix([[3, 3],
         [3, 4]])
@@ -107,11 +107,18 @@ matrix([[4, 4],
 matrix([[ 4.5, -3. ],
         [-3. ,  3. ]])
 
->>> matriz_A = Matriz((3,1,5),(2,0,-2),(-1,4,-3))
+>>> matriz_A = Matriz([(3,1,5),(2,0,-2),(-1,4,-3)])
 >>> matriz_A.calcular_Inversa()
 matrix([[ 0.11111111,  0.31944444, -0.02777778],
         [ 0.11111111, -0.05555556,  0.22222222],
         [ 0.11111111, -0.18055556, -0.02777778]])
+
+>>> matriz_B = Matriz([(3,2),(6,4)])
+>>> matriz_B.calcular_Inversa()
+'Matriz Singular !'
+
+>>> matriz_B = Matriz([(3,2),(6,4)])
+>>> matriz_A = Matriz([(3,2),(6,4)])
 
 >>> equacao = SistemaDuasIncognitas(4,-3,-3,2)
 >>> equacao.acharDuasRetasCoincidentes()
