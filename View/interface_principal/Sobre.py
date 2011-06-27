@@ -27,7 +27,7 @@ class JanelaSobre(object):
 		"""
 		Metodo Construtor da classe
 		"""
-		self.arquivoglade = "sobre.glade"
+		self.arquivoglade = "/home/patricia/Matsis/View/interface_principal/sobre.glade"
 		self.xml = gtk.glade.XML(self.arquivoglade)
 
 
@@ -37,7 +37,7 @@ class JanelaSobre(object):
 
 
 		img = gtk.Image()
-		img.set_from_file("sobre.jpg")
+		img.set_from_file("/home/patricia/Matsis/View/interface_principal/sobre.jpg")
 		self.fix.add(img)
 		self.mainWindow1 = self.xml.get_widget('window2')
 		self.mainWindow1.show_all()

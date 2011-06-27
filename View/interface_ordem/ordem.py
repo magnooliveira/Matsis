@@ -126,7 +126,7 @@ class Janela_Ordem(object):
 					self.xml.get_widget('edt_ordem1').grab_focus()
 				else:
 					self.mainWindow_ordem.hide()
-					matriz = Janela_Matriz_B(self.tipo_operacao,self.mat_A, self.ordem1, self.coluna_anterior)
+					matriz = Janela_Matriz_B(self.tipo_operacao,self.mat_A, self.ordem1, self.ordem2)
 					self.mainWindow_ordem.destroy()
 
 

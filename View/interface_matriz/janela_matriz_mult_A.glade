@@ -41,7 +41,24 @@
             <property name="y">440</property>
           </packing>
         </child>
+                <child>
+          <widget class="GtkButton" id="btn_preencher">
+            <property name="label" translatable="yes">Preencher Campos</property>
+            <property name="width_request">115</property>
+            <property name="height_request">33</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btn_preencher_clicked" after="yes"/>
+          </widget>
+          <packing>
+            <property name="x">333</property>
+            <property name="y">440</property>
+          </packing>
+        </child>
+
       </widget>
     </child>
   </widget>
 </glade-interface>
+

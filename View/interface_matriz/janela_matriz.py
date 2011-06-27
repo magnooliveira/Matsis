@@ -18,6 +18,8 @@ from janela_matriz_b import *
 from ClasseControle import *
 from matriz import *
 
+from random import randint
+
 try:
 	import pygtk
 	pygtk.require("2.0")
@@ -99,6 +101,10 @@ class Janela_Matriz(object):
 			self.lista[posicao].set_text("")
 		self.matriz = []
 
+	def on_btn_preencher_clicked(self, *args):
+		for posicao in range(0, self.produto):
+			self.lista[posicao].set_text(str(randint(1,30)))
+
 	def validar_edits(self)	:
 		condicao = False
 		for posicao in range(0, self.produto):
@@ -128,7 +134,7 @@ class Janela_Matriz(object):
 			self.passa_para_real_as_linhas()
 			mat = Matriz (self.matriz[:self.linha])
 			traco = mat.calcular_Traco()
-			self.controle.alerta("O traço é %.3f !"%traco)
+			self.controle.resultado(" O traço é %.3f ! "%traco)
 
 	def on_btn_determinante_clicked(self, *args):
 		self.matriz = []
@@ -136,7 +142,7 @@ class Janela_Matriz(object):
 			self.passa_para_real_as_linhas()
 			mat = Matriz (self.matriz[:self.linha])
 			det = mat.calcular_determinante()
-			self.controle.alerta("O Determinante é %.3f !"%det)
+			self.controle.resultado(" O Determinante é %.3f ! "%det)
 
 	def on_btn_inversa_clicked(self, *args):
 		self.matriz = []
@@ -145,7 +151,7 @@ class Janela_Matriz(object):
 			mat = Matriz (self.matriz[:self.linha])
 			inverso = mat.calcular_Inversa()
 			texto = str(inverso)
-			self.controle.alerta(texto)
+			self.controle.resultado(texto)
 
 	def on_btn_transposta_clicked(self, *args):
 		self.matriz = []
@@ -154,7 +160,7 @@ class Janela_Matriz(object):
 			mat = Matriz (self.matriz[:self.linha])
 			trans = mat.calcular_Transposta()
 			texto = str(trans)
-			self.controle.alerta(texto)
+			self.controle.resultado(texto)
 
 	def on_btn_matriz_a_clicked(self, *args):
 		self.matriz = []

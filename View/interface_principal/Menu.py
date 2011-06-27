@@ -3,6 +3,9 @@
 
 #Autor: Magno Lima Oliveira
 
+import matplotlib
+matplotlib.use('GTKAgg')
+
 from sys import *
 import os.path
 
@@ -21,6 +24,7 @@ from janela2d import *
 from janela3d import *
 from janela_esc3 import *
 from janela_esc4 import *
+from janela_grafico_3d import *
 
 try:
 	import pygtk
@@ -43,7 +47,7 @@ class JanelaPrincipal(object):
 		Metodo Construtor da classe
 		"""
 
-		self.arquivoglade = "Menu.glade"
+		self.arquivoglade = "/home/patricia/Matsis/View/interface_principal/Menu.glade"
 		self.xml = gtk.glade.XML(self.arquivoglade)
 
 		self.menu = self.xml.get_widget('menubar1')
@@ -51,7 +55,7 @@ class JanelaPrincipal(object):
 		self.fix = self.xml.get_widget('fixed1')
 		self.j  = JanelaSobre()
 		img = gtk.Image()
-		img.set_from_file("matematica.jpg")
+		img.set_from_file("/home/patricia/Matsis/View/interface_principal/matematica.jpg")
 		self.fix.add(img)
 		self.mainWindow1 = self.xml.get_widget('window1')
 		self.mainWindow1.show_all()
@@ -75,6 +79,9 @@ class JanelaPrincipal(object):
 
 	def on_sistema3d_activate(self,*args):
 		janela3d = Janela2()
+
+	def on_grafico3d_activate(self,*args):
+		janela_grafico_3d = Janela_Grafico_3D()
 
 	def on_calcular_traco_activate(self,*args):
 		traco = 1

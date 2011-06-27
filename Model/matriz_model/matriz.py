@@ -63,7 +63,7 @@ class  Matriz (object):
 		try:
 			return self.matriz.I # I = Inverso
 		except numpy.linalg.linalg.LinAlgError:
-			return "Matriz Singular !"
+			return " Matriz Singular ! "
 
 	def descobrir_Ordem_da_Matriz(self):
 		return self.matriz.shape

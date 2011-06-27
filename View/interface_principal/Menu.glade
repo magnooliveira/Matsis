@@ -72,6 +72,15 @@
                         <signal name="activate" handler="on_esc4_activate" after="yes"/>
                       </widget>
                     </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="grafico3d">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Gráfico 3D</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate_item" handler="on_grafico3d_activate_item" after="yes"/>
+                        <signal name="activate" handler="on_grafico3d_activate" after="yes"/>
+                      </widget>
+                    </child>
                   </widget>
                 </child>
               </widget>

@@ -72,7 +72,7 @@ class Janela_Numero(object):
 		if self.validar_edt():
 			produto = self.mat_A.multiplicar_um_numero_por_uma_matriz(self.numero)
 			texto = str(produto)
-			self.controle.alerta(texto)
+			self.controle.resultado(texto)
 
 
 if __name__=="__main__":

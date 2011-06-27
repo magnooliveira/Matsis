@@ -1,7 +1,6 @@
 # coding: utf-8
 #!/usr/bin/python
 #Autor: Magno Lima Oliveira
-
 from sys import path
 import os.path
 
@@ -13,8 +12,11 @@ path.append(caminho_do_controller)
 
 from Sistema_De_Tres_Incognitas import *
 
-from Gera_Grafico_2D import *
+from Gera_Grafico_3D import *
 from ClasseControle import *
+
+#import matplotlib
+#import matplotlib.pyplot as plt
 
 try:
 	import pygtk
@@ -48,7 +50,7 @@ class Janela2(object):
 		self.mainWindow.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#00FF00"))
 		self.xml.signal_autoconnect(self)
 		self.mainWindow.show_all()
-
+		self.ativaGrafico=False
 		self.a1 = None
 		self.b1 = None
 		self.c1 = None
@@ -69,7 +71,6 @@ class Janela2(object):
 		store.append(["Dois Planos Paralelos um Intersecta"])
 		store.append(["Tres Planos Com uma Reta Comum"])
 		store.append(["Tres Planos Intersectam Dois a Dois"])
-		store.append(["Tres Planos um Ponto Comum"])
 
 		# Celula texto para nossa Caixa de Selecao
 		celula = gtk.CellRendererText()
@@ -179,11 +180,6 @@ class Janela2(object):
 					self.mostrarResultado(self.resposta)
 					self.ativaGrafico=True
 
-				elif self.combo == "Tres Planos um Ponto Comum":
-					self.resposta = self.criar_equacao().acharTresPlanosUmPontoComum()
-					self.mostrarResultado(self.resposta)
-					self.ativaGrafico=True
-
 	def on_btnLimpar_clicked(self, *args):
 
 		self.xml.get_widget("edta1").set_text('')
@@ -203,8 +199,16 @@ class Janela2(object):
 
 	def on_btnGerarGrafico_clicked(self, *args):
 		if (self.ativaGrafico == True):
-			grafico = Grafico(self.a1,self.b1,self.c1,self.resposta[0],self.resposta[1],self.resposta[2])
-			grafico.gerarGrafico3D()
+			grafico = Gera_Grafico_3D(self.a1, self.b1, self.c1, self.d1, self.resposta[0][0],\
+																							self.resposta[0][1],\
+																							self.resposta[0][2],\
+																							self.resposta[0][3],\
+																							self.resposta[1][0],\
+																							self.resposta[1][1],\
+																							self.resposta[1][2],\
+																							self.resposta[1][3])
+			self.ativaGrafico = False
+			grafico.gerar_grafico_3d()
 		else:
 			self.validar.alerta("Gere o Sistema!")
 		gtk.main()

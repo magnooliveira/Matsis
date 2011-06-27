@@ -24,7 +24,7 @@ class Janela_About(object):
 		"""
 		Metodo Construtor da classe
 		"""
-		self.arquivoglade = "sobre_novo.glade"
+		self.arquivoglade = "/home/patricia/Matsis/View/interface_principal/sobre_novo.glade"
 		self.xml = gtk.glade.XML(self.arquivoglade)
 
 		self.fix2 = self.xml.get_widget('fixed2')

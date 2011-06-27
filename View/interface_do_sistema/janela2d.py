@@ -2,6 +2,7 @@
 #!/usr/bin/python
 #Autor: Magno Lima Oliveira
 
+
 from sys import path
 import os.path
 
@@ -16,8 +17,8 @@ from Sistema_De_Duas_Incognitas import *
 from Gera_Grafico_2D import *
 from ClasseControle import *
 
-import matplotlib
-import matplotlib.pyplot as plt
+#import matplotlib
+#import matplotlib.pyplot as plt
 try:
 	import pygtk
 	pygtk.require("2.0")

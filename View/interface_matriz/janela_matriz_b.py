@@ -5,6 +5,8 @@ from sys import *
 import os
 import numpy
 
+from random import randint
+
 caminho_do_model = os.path.expanduser( "~/Matsis/Model/matriz_model")
 caminho_do_controller =  os.path.expanduser("~/Matsis/Controller")
 
@@ -82,6 +84,10 @@ class Janela_Matriz_B(object):
 			self.lista[posicao].set_text("")
 		self.matriz = []
 
+	def on_btn_preencher_clicked(self, *args):
+		for posicao in range(0, self.produto):
+			self.lista[posicao].set_text(str(randint(1,30)))
+
 	def validar_edits(self)	:
 		condicao = False
 		for posicao in range(0, self.produto):
@@ -112,7 +118,7 @@ class Janela_Matriz_B(object):
 			mat_B = Matriz (self.matriz[:self.linha])
 			soma = mat_B.somar(self.matriz_A)
 			texto = str(soma)
-			self.controle.alerta(texto)
+			self.controle.resultado(texto)
 
 	def on_btn_matriz_subtrair_clicked(self, *args):
 		self.matriz = []
@@ -121,7 +127,7 @@ class Janela_Matriz_B(object):
 			mat_B = Matriz (self.matriz[:self.linha])
 			soma = mat_B.subtrair(self.matriz_A)
 			texto = str(soma)
-			self.controle.alerta(texto)
+			self.controle.resultado(texto)
 
 	def on_btn_matriz_multiplicar_clicked(self, *args):
 		self.matriz = []
@@ -130,7 +136,7 @@ class Janela_Matriz_B(object):
 			mat_B = Matriz (self.matriz[:self.linha])
 			soma = mat_B.multiplicar(self.matriz_A)
 			texto = str(soma)
-			self.controle.alerta(texto)
+			self.controle.resultado(texto)
 
 	def on_window_destroy(self,*args):
 		gtk.main_quit()
